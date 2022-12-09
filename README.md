@@ -1,6 +1,7 @@
 # IBD_remission_study
-The jupyter notebook contains a python script that was used to generate Neural network model to predict IBD <br>
-remission status based on patient's microbiome taxonomy (16S rRNA) data.
+ML_classification.ipynb contains a python script that was used to generate a neural network model to predict IBD <br>
+remission status based on patient's microbiome taxonomy (16S rRNA) profiles.
+Prior to the neural net training, the data was filtered based on their point-biserial correlation score (|cor| >0.1) and p-value (p-val <0.05)
 
 
 # Dependencies
