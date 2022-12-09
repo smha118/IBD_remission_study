@@ -3,7 +3,7 @@ ML_classification.ipynb contains a python script that was used to generate a neu
 remission status based on patient's microbiome taxonomy (16S rRNA) profiles.
 Prior to the neural net training, the data was filtered based on their point-biserial correlation score (|cor| >0.1) and p-value (p-val <0.05)
 
-![Overall Schematic](https://github.com/smha118/IBD_remission_study/figures/IBD_ML_Figures.png?raw=true)
+![Overall Schematic](https://github.com/smha118/IBD_remission_study/blob/main/figures/IBD_ML_Figures.png?raw=true)
 
 
 # Dependencies
