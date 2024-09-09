@@ -1,9 +1,8 @@
 
 # IBD_remission_study
-This GitHub page contains all the relevant code for the analysis conducted for the paper "Gut Microbiota-Based Ensemble Model Predicts Prognosis Of Pediatric Inflammatory Bowel Disease". In the study, we trained/tested various machine learning models to predict prognosis of pediatric inflammatory bowel disease with the activate state microbiome (16S rRNA) and clinical metadata.
-Under the analaysis_code, there are two jupyter notebooks, hyperparameter_tuning.ipynb and ML_classification.ipynb <br>
+This GitHub page contains all the relevant code for the analysis conducted for the paper "Gut Microbiota-Based Ensemble Model Predicts Prognosis of Pediatric Inflammatory Bowel Disease." In this study, we trained and tested various machine learning models to predict the prognosis of pediatric inflammatory bowel disease using the active state microbiome (16S rRNA) and clinical metadata. Under the analysis_code folder, there are two Jupyter notebooks: hyperparameter_tuning.ipynb and ML_classification.ipynb.
 
-Prior to the machine learning training, the data was filtered based on their point-biserial correlation score (|cor| >0.1) and p-value (p-val <0.05)
+Prior to training the machine learning models, the data was filtered based on their point-biserial correlation score (|cor| > 0.1) and p-value (p < 0.05).
 
 
 ![Overall Schematic](https://github.com/smha118/IBD_remission_study/blob/main/figures/IBD_ML_Figures.png?raw=true)
@@ -20,3 +19,7 @@ cd IBD_remission_study
 ```
 conda env create -f environment.yml
 ```
+
+# Runnig the ensemble model
+The final ensemble model is provided under the model directory.
+Please be adviced that the model is for the research use only and it should never be used for any clinical use.
