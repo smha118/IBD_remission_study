@@ -1,4 +1,3 @@
-#!/usr/bin/env Rscript
 
 # usage: ./model_input_batch_correct_mmuphin.r --in ${asvtabout} --out_ac ${corrected_asvtabout} --out_mc ${corrected_asvtabout} --out_mu ${corrected_asvtabout} --refasv ${refasvtab_count} --refmeta ${refasvtab_metacovar} --modelasv ${model_asv_table}
 
@@ -18,7 +17,7 @@ library(MMUPHin)
 # parse input arguments
 ## create a parser
 option_list <- list(
-    make_option(c("-i", "--in"), type="character", default=NULL, help="input ASV read count table", metavar="character"),
+    make_option(c("-i", "--input"), type="character", default=NULL, help="input ASV read count table", metavar="character"),
     make_option(c("-a", "--out_ac"), type="character", default=NULL, help="output containing batch effect corrected ASV read count for all ASVs", metavar="character"),
     make_option(c("-c", "--out_mc"), type="character", default=NULL, help="output containing batch effect corrected ASV read count just for the ASVs used in the prognostic model", metavar="character"),
     make_option(c("-u", "--out_mu"), type="character", default=NULL, help="output containing uncorrected ASV read count just for the ASVs used in the prognostic model", metavar="character"),
@@ -28,36 +27,36 @@ option_list <- list(
 )
 opt_parser <- OptionParser(option_list=option_list)
 opt <- parse_args(opt_parser)
-if (is.null(opt$in)) {
+if(is.null(opt$input)) {
   print_help(opt_parser)
   stop("Give --in or -i input argument", call.=FALSE)
 }
-if (is.null(opt$out_ac)) {
+if(is.null(opt$out_ac)) {
   print_help(opt_parser)
   stop("Give --out_ac or -a input argument", call.=FALSE)
 }
-if (is.null(opt$out_mc)) {
+if(is.null(opt$out_mc)) {
   print_help(opt_parser)
   stop("Give --out_mc or -c input argument", call.=FALSE)
 }
-if (is.null(opt$out_mu)) {
+if(is.null(opt$out_mu)) {
   print_help(opt_parser)
   stop("Give --out_mu or -u input argument", call.=FALSE)
 }
-if (is.null(opt$modelasv)) {
+if(is.null(opt$modelasv)) {
   print_help(opt_parser)
   stop("Give --modelasv or -v input argument", call.=FALSE)
 }
-if (is.null(opt$refasv)) {
+if(is.null(opt$refasv)) {
   print_help(opt_parser)
   stop("Give --refasv or -r input argument", call.=FALSE)
 }
-if (is.null(opt$refmeta)) {
+if(is.null(opt$refmeta)) {
   print_help(opt_parser)
   stop("Give --refmeta or -m input argument", call.=FALSE)
 }
 
-input_asv_count_tsv <- opt$in
+input_asv_count_tsv <- opt$input
 output_asv_corr_count_tsv <- opt$out_ac
 output_modelasv_corr_count_tsv <- opt$out_mc
 output_modelasv_uncorr_count_tsv <- opt$out_mu

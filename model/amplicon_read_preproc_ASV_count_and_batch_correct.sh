@@ -79,16 +79,17 @@ fastp -i ${raw_pe_1} -I ${raw_pe_2} --merge --merged_out ${merged_fq} --html ${m
 
 # (3) trim the reads (primers assumed to be < 20 bp)
 echo "Trim terminal 20 bases to remove primer parts, approximately"
-usearch11.0.667_i86linux32 -fastx_truncate ${merged_fq} -stripleft 20 -stripright 20 -relabel ${SAMPLE}_ -fastqout ${trimmed_fq}
+usearch -fastx_truncate ${merged_fq} -stripleft 20 -stripright 20 -relabel ${SAMPLE} -fastqout ${trimmed_fq}
 
 
 # (4) filter low quality reads 
 echo "Filter out low quality reads"
-usearch11.0.667_i86linux32 -fastq_filter ${trimmed_fq} -fastq_maxee 5.0 -fastq_minlen 180 -fastaout ${filtered_fa}
+usearch -fastq_filter ${trimmed_fq} -fastq_maxee 5.0 -fastq_minlen 180 -fastaout ${filtered_fa}
 
 
 # (5) add sample name field to the header lines of the fasta file 
 echo "Append sample names in fasta header"
+echo python fasta_append_sample_name_header.py --in ${filtered_fa} --out ${modified_header_fa} --sample ${SAMPLE}
 python fasta_append_sample_name_header.py --in ${filtered_fa} --out ${modified_header_fa} --sample ${SAMPLE}
 
 
@@ -98,5 +99,6 @@ vsearch --usearch_global ${modified_header_fa} --db ${refasv_seqdb} --id 0.95 --
 
 
 # (7) batch correct and produce a new asv table
-./model_input_batch_correct_mmuphin.r --in ${asvtabout} --out_ac ${corrected_asvtabout} --out_mc ${corrected_asvtabout} --out_mu ${corrected_asvtabout} --refasv ${refasvtab_count} --refmeta ${refasvtab_metacovar} --modelasv ${model_asv_table}
+Rscript model_input_batch_correct_mmuphin.r --in ${asvtabout} --out_ac ${all_asv_corrected_tabout} --out_mc ${model_asv_corrected_tabout} --out_mu ${model_asv_uncorrected_tabout} --refasv ${refasvtab_count} --refmeta ${refasvtab_metacovar} --modelasv ${model_asv_table}
+
 
