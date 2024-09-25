@@ -18,6 +18,8 @@ cd IBD_remission_study
 
 ```
 conda env create -f environment.yml
+conda activate ibd
+pip install --timeout 1000 -r pip_requirement.txt
 ```
 
 # Runnig the ensemble model
