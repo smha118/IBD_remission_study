@@ -1,7 +1,6 @@
 
 # Docker
-For convenience, a Docker image is available to run the model with your own data.
-DockerHub page can be found [here] (https://hub.docker.com/repository/docker/danha118/pibd_model)
+For convenience, a Docker image is available to run the model with your own data. The DockerHub page can be found [here](https://hub.docker.com/repository/docker/danha118/pibd_model).
 
 # Pull docker image
 ```
