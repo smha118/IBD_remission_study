@@ -9,6 +9,7 @@
 ## [2] SAMPLE.model_asv_uncorrected_count.tsv: uncorrected read count of the ASVs used in prognostic model (a two column tsv file with header row; column 1 = 'asv' = ASV name, column 2 = 'uncorr_count' = read count as is provided in the input)
 ## [3] SAMPLE.model_asv_batch_corrected_count.tsv: batch-corrected read count of the ASVs used in prognostic model (a two column tsv file with header row; column 1 = 'asv' = ASV name, column 2 = 'batch_corr_count' = read count after batch effect correction)
 SAMPLE=$1
+METADATA=$2
 
 # dependencies
 ## a) executable commands
@@ -101,4 +102,5 @@ vsearch --usearch_global ${modified_header_fa} --db ${refasv_seqdb} --id 0.95 --
 # (7) batch correct and produce a new asv table
 Rscript model_input_batch_correct_mmuphin.r --in ${asvtabout} --out_ac ${all_asv_corrected_tabout} --out_mc ${model_asv_corrected_tabout} --out_mu ${model_asv_uncorrected_tabout} --refasv ${refasvtab_count} --refmeta ${refasvtab_metacovar} --modelasv ${model_asv_table}
 
-
+# (8) run prediction model with batch corrected reads
+python predict_prog_pibd.py --input ${model_asv_corrected_tabout} --sample ${SAMPLE} --output ${SAMPLE}_modelprediction_out.tsv --metadata ${METADATA} 
