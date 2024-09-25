@@ -14,11 +14,14 @@ docker run -v ./:/data danha118/pibd_model:arm amplicon_read_preproc_ASV_count_a
 ```
 
 # Files needed
-For the input you need two parameters.
-Sample name and metadata file name.
-You also need raw fastq files named after your sample name.
-e.g) SRR15702544_1.fastq.gz and SRR15702544_2.fastq.gz 
+For the input, you need two parameters: the sample name and the metadata file name. 
+
+You also need raw fastq files named after your sample name. 
+
+For example, SRR15702544_1.fastq.gz and SRR15702544_2.fastq.gz. 
+
 The script only works with paired-end data.
+
 
 The metadata should consist of following columns
 | sample | current.disease | current.calprotectin_range.V3 | current.severity | current.age | gender | current.antibiotics | Anti-TNFa | 5ASA | AZA | Steroids |
