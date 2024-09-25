@@ -4,7 +4,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.8
+  - python=3.10.14
   - fastp
   - ca-certificates
   - openssl
@@ -147,7 +147,7 @@ dependencies:
       - tensorboard==2.16.2
       - tensorboard-data-server==0.7.2
       - tensorflow==2.16.2
-      - tensorflow-addons==0.23.0
+      - tensorflow-addons==0.17.1
       - tensorflow-estimator==2.13.0
       - tensorflow-io-gcs-filesystem==0.37.1
       - tensorflow-macos==2.16.2
