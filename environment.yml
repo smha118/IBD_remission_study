@@ -11,6 +11,7 @@ dependencies:
   - bioconda::vsearch
   - conda-forge::r-base
   - click
+  - pip=23.3.1
   - pip:
       - absl-py==2.0.0
       - anyio==4.1.0
