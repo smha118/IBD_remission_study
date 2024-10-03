@@ -24,5 +24,5 @@ conda activate ibd
 pip install --timeout 1000 -r pip_requirement.txt
 ```
 
-# How to test the ensemble model used in the manuscript
+# How to run the ensemble model used in the manuscript
 The final ensemble model is provided under the model directory.<br> Please be advised that the model is for research use only and should never be used for any clinical purposes.
